@@ -1,0 +1,82 @@
+﻿@model HomeVM
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Huseyn Yusifov">
+    <meta name="description" content="Portfolio web site of Huseyn Yusifov">
+    <title>Huseyn</title>
+    <link rel="icon" href="~/img/appletouch.png">
+    <link rel="apple-touch-icon" href="~/img/appletouch.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Cormorant+Garamond:ital,wght@1,600&family=Satisfy&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="~/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid">
+            <div class="row justify-content-between rowheader">
+                <div class="col-lg-6 col-md-6 col-sm-6 logoimage">
+                    <a asp-action="index"><img src="~/img/HY_logo.png" class="logoimg"></a>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="burgermenu">
+                        <img src="~/img/menu.svg" width="30px" height="30px">
+                    </div>
+                    <ul class="liheader">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#works">Works</a></li>
+                        <li><a href="#contacts">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="burgeritems">
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#works">Works</a></li>
+                        <li><a href="#contacts">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    @RenderBody()
+    <footer style="overflow: hidden;">
+        <div class="container-fluid">
+            <div class="row rowfooter">
+                <div class="col-lg-4 col-md-6 col-sm-12 logofooter">
+                    <a asp-action="index"><img src="~/img/HY_black.png" height="70px" width="100px"></a>
+                    <p class="copyright">© @DateTime.Now.Year Huseyn Yusifov. All rights reserved. </p>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 servicesfooter">
+                    <ul>
+                        <li class="lifirst">Services</li>
+                        <li>Web Design</li>
+                        <li>Responsiveness</li>
+                        <li>Web Development</li>
+                        <li>Photography</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 socialfooter">
+                    <a href="@Model.Contact.Facebook" target="_blank"> <img src="~/img/facebook.png" width="35px" height="35px"></a>
+                    <a href="@Model.Contact.Instagram" target="_blank"> <img src="~/img/instagram.svg" width="35px" height="35px"></a>
+                    <a href="@Model.Contact.Linkedin" target="_blank"> <img src="~/img/linkedin.svg" width="35px" height="35px"></a>
+                    <a href="@Model.Contact.Github" target="_blank"> <img src="~/img/github.svg" width="35px" height="35px"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/script.js"></script>
+</body>
+
+</html>

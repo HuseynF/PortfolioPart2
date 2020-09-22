@@ -1,0 +1,29 @@
+﻿@model AboutMe
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>About Me</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Description</th>
+            <th scope="col">Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>@Html.Raw(Model.Text)</td>
+            <td>
+                <button class="btn btn-success btn-s">
+                    <a asp-controller="AboutMe" asp-action="Update" asp-route-id="@Model.Id">
+                        <i class="fa fa-pencil-square"></i>
+                    </a>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

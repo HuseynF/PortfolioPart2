@@ -1,0 +1,58 @@
+﻿@model IEnumerable<MyWorks>
+@{
+    ViewData["Title"] = "Index";
+    int count = 1;
+}
+
+<h2>My Works</h2>
+
+<div><a asp-controller="myworks" asp-action="create" class="btn btn-primary mb">Add New Work</a></div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Head</th>
+            <th scope="col">Description</th>
+            <th scope="col">ModalName</th>
+            <th scope="col">ShortName</th>
+            <th scope="col">CloseName</th>
+            <th scope="col">ImageId</th>
+            <th scope="col">CategoryId</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (MyWorks item in Model)
+        {
+        <tr>
+            <th scope="row">@count</th>
+            <td><img src="~/img/@item.Image.Image1" width="200px" height="150px" /></td>
+            <td>@item.Head</td>
+            <td>@Html.Raw(item.Text)</td>
+            <td>@item.ModalName</td>
+            <td>@item.ShortName</td>
+            <td>@item.CloseName</td>
+            <td>@item.ImageId</td>
+            <td>@item.CategoryId</td>
+            <td>
+                <button class="btn btn-success btn-xs">
+                    <a asp-controller="myworks" asp-action="Update" asp-route-id="@item.Id">
+                        <i class="fa fa-pencil-square"></i>
+                    </a>
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-danger btn-xs">
+                    <a asp-controller="myworks" asp-action="delete" asp-route-id="@item.Id">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </button>
+            </td>
+        </tr>
+            count++;
+        }
+    </tbody>
+</table>

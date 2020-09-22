@@ -1,0 +1,224 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Index";
+}
+<section style="overflow: hidden;">
+    <div class="container-fluid">
+        <div class="row">
+            <img src="~/img/HY.jpg" class="mypic" height="400px" width="1455px">
+        </div>
+    </div>
+</section>
+<section style="overflow: hidden;" id="about">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 info">
+                <h2 class="head">Hi</h2>
+                <div class="aboutme">
+                    <meta name="keywords" content="Huseyn Yusifov">
+                    <p>@Html.Raw(Model.AboutMe.Text)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section style="overflow: hidden;" id="skills">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 skills">
+                <h2 class="head">About My Skills</h2>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div id="skillinfo">
+                    <p>
+                        @Html.Raw(Model.AboutSkills.Text)
+                    </p>
+                </div>
+              
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <img src="~/img/html.svg" height="35px" width="35px">
+                <span class="skillpercent">95%</span>
+                <div id="html">
+                </div>
+                <img src="~/img/css.svg" height="35px" width="35px">
+                <span class="skillpercent">95%</span>
+                <div id="css">
+                </div>
+                <img src="~/img/js.svg" height="30px" width="35px">
+                <span class="skillpercent">70%</span>
+                <div id="js">
+                </div>
+                <img src="~/img/react.svg" height="35px" width="35px">
+                <span class="skillpercent">40%</span>
+                <div id="react">
+                </div>
+                <img src="~/img/jquery.png" height="35px" width="35px">
+                <span class="skillpercent">80%</span>
+                <div id="jquery">
+                </div>
+                <img src="~/img/sass.svg" height="35px" width="35px">
+                <span class="skillpercent">85%</span>
+                <div id="sass">
+                </div>
+                <img src="~/img/csharp.svg" height="35px" width="35px">
+                <span class="skillpercent">75%</span>
+                <div id="c">
+                </div>
+                <img src="~/img/net.png" height="35px" width="35px">
+                <span class="skillpercent">70%</span>
+                <div id="net">
+                </div>
+                <img src="~/img/asp.png" height="35px" width="35px">
+                <span class="skillpercent">80%</span>
+                <div id="asp">
+                </div>
+                <img src="~/img/mssql.svg" height="35px" width="35px">
+                <span class="skillpercent">80%</span>
+                <div id="sql">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section style="overflow: hidden;" id="services">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 services">
+                <h2 class="head">Services</h2>
+            </div>
+            @foreach (Services item in Model.Services)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12 service">
+                    <img src="~/img/@item.Image" width="50px" height="50px">
+                    <p class="titleofservice">@item.Head</p>
+                    <div class="serviceinfo">
+                        <p>@Html.Raw(item.Text)</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<section style="overflow: hidden;" id="works">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 works">
+                <h2 class="head">My Works</h2>
+            </div>
+            @foreach (MyWorks item in Model.MyWorks)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12 mt-5">
+                    <div class="work">
+                        <a id="@item.ShortName">
+                            <img class="singleworkimage" src="~/img/@item.Image.Image1" width="350px" height="250px">
+                        </a>
+                        <div class="titleofwork">
+                            <p>@item.Head</p> 
+                        </div>
+                    </div>
+                </div>
+                <div id="@item.ModalName" class="modal">
+                    <div class="modal-content">
+                        <span class="close" id="@item.CloseName">&times;</span>
+                        <section style="overflow: hidden;">
+                            <div class="container-fluid">
+                                <div class="row mt-5">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 text-center mt-5">
+                                        <div class="head">
+                                            <p>@item.Head</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 text-center mt-5">
+                                        @if (item.Image.Image1 != null)
+                                        {
+                                            <img src="~/img/@item.Image.Image1"  class="workimage">
+                                        }
+                                        @if (item.Image.Image2 != null)
+                                        {
+                                            <img src="~/img/@item.Image.Image2"
+                                                 class="mt-5 workimage">
+                                        }
+                                        @if (item.Image.Image3 != null)
+                                        {
+                                            <img src="~/img/@item.Image.Image3"
+                                                 class="mt-5 mb-5 workimage1">
+                                        }
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 text-center mt-5">
+                                        <div class="workinfo">
+                                            <p>@Html.Raw(item.Text)</p>
+                                        </div>
+                                        <p class="skillstext">Skills</p>
+                                        <div class="boxes justify-content-center">
+
+                                            @if (item.Category.Category1 != null)
+                                            {
+                                                <div class="skillbox">@item.Category.Category1</div>
+                                            }
+                                            @if (item.Category.Category2 != null)
+                                            {
+                                                <div class="skillbox">@item.Category.Category2</div>
+                                            }
+                                            @if (item.Category.Category3 != null)
+                                            {
+                                                <div class="skillbox">@item.Category.Category3</div>
+                                            }
+                                            @if (item.Category.Category4 != null)
+                                            {
+                                                <div class="skillbox">@item.Category.Category4</div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+<section style="overflow: hidden;">
+    <div class="container-fluid">
+        <div class="row mt-5" id="contacts">
+            <div class="col-lg-6 col-md-12 col-sm-12 contactme">
+                <p class="contactmetext" id="contact">Contact me</p>
+                <div>
+                    <img src="~/img/call.svg" class="contactlogo">
+                    <p class="contacthead">Phone</p>
+                    <p class="textforcontact">@Model.Contact.Phone</p>
+                </div>
+                <div>
+                    <img src="~/img/whatsapp.svg" class="contactlogo">
+                    <p class="contacthead">Whatsapp</p>
+                    <p class="textforcontact">@Model.Contact.Phone</p>
+                </div>
+                <div>
+                    <img src="~/img/email.svg" class="contactlogo">
+                    <p class="contacthead">Email</p>
+                    <p class="textforcontact">@Model.Contact.Email</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 contactme">
+                <p class="contactmetext">Message me</p>
+                <div class="row">
+                    <div asp-validation-summary="ModelOnly" class="text-danger list-unstyled ml-4"></div>
+                </div>
+                <form method="post" class="form">
+                    <input type="text" name="CustomerName" class="inputs" placeholder="Name*">
+                    <span class="text-danger field-validation-valid" data-valmsg-for="CustomerName" data-valmsg-replace="true"></span>
+                    <input type="email" name="CustomerEmail" class="inputs" placeholder="Email*">
+                    <span class="text-danger field-validation-valid" data-valmsg-for="CustomerEmail" data-valmsg-replace="true"></span>
+                    <input type="text" name="Subject" class="inputs" placeholder="Subject*">
+                    <span class="text-danger field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                    <textarea name="Post" id="textarea" placeholder="Content*"></textarea>
+                    <span class="text-danger field-validation-valid" data-valmsg-for="Post" data-valmsg-replace="true"></span>
+                    <button type="submit" class="btnsend">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="backtotop" onclick="scrollToTop()"><img src="~/img/top.svg" height="35px" width="35px"></div>

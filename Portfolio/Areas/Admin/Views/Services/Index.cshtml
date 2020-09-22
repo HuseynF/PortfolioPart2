@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Services>
+@{
+    ViewData["Title"] = "Index";
+    int count = 1;
+}
+
+<h2>Services</h2>
+
+<div><a asp-controller="services" asp-action="create" class="btn btn-primary mb">Add New Service</a></div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Head</th>
+            <th scope="col">Description</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Services item in Model)
+        {
+        <tr>
+            <th scope="row">@count</th>
+            <td><img src="~/img/@item.Image" width="50px" height="50px" /></td>
+            <td>@item.Head</td>
+            <td>@item.Text</td>
+            <td>
+                <button class="btn btn-success btn-xs">
+                    <a asp-controller="services" asp-action="Update" asp-route-id="@item.Id">
+                        <i class="fa fa-pencil-square"></i>
+                    </a>
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-danger btn-xs">
+                    <a asp-controller="services" asp-action="delete" asp-route-id="@item.Id">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </button>
+            </td>
+        </tr>
+            count++;
+        }
+    </tbody>
+</table>

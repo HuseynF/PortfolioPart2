@@ -1,0 +1,31 @@
+﻿@model Image
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h2>Update</h2>
+
+<div class="container">
+    <div class="row">
+        <h3>Current Image</h3>
+        <img src="~/img/@Model.Image2" width="300px" height="200px" />
+    </div>
+    <div class="row">
+        <div class="col-lg-11">
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="Photo2"></label>
+                    <input asp-for="Photo2" class="form-control" accept="image/*">
+                    <span asp-validation-for="Photo2" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="row mt ml">
+        <div class="col-lg-11">
+            <a class="btn btn-success" asp-action="Index">Back</a>
+        </div>
+    </div>
+</div>

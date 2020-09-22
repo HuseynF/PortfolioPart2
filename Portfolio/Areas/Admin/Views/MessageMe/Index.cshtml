@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MessageMe>
+@{
+    ViewData["Title"] = "Index";
+    int count = 1;
+}
+
+<h2>You have got @ViewBag.MessageCount Messages</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Post</th>
+            <th scope="col">Reply via Mail</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (MessageMe item in Model)
+        {
+            <tr>
+                <th scope="row">@count</th>
+                <td>@item.CustomerName</td>
+                <td>@item.CustomerEmail</td>
+                <td>@item.Subject</td>
+                <td>@item.Post</td>
+                <td>
+                    <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank">
+                        <i class="fa fa-envelope" style="font-size:20px; color:black!important;"></i>
+                    </a>
+                </td>
+            </tr>
+            count++;
+        }
+    </tbody>
+</table>

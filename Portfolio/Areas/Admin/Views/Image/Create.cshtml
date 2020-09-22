@@ -1,0 +1,36 @@
+﻿@model Image
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-11">
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="Photo1"></label>
+                    <input asp-for="Photo1" class="form-control" accept="image/*">
+                    <span asp-validation-for="Photo1" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Photo2"></label>
+                    <input asp-for="Photo2" class="form-control" accept="image/*">
+                    <span asp-validation-for="Photo2" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Photo3"></label>
+                    <input asp-for="Photo3" class="form-control" accept="image/*">
+                    <span asp-validation-for="Photo3" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="row mt ml">
+        <div class="col-lg-11">
+            <a class="btn btn-success" asp-action="Index">Back</a>
+        </div>
+    </div>
+</div>

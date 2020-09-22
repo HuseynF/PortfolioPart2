@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Category>
+@{
+    ViewData["Title"] = "Index";
+    int count = 1;
+}
+
+<h2>Categories</h2>
+
+<div><a asp-controller="category" asp-action="create" class="btn btn-primary mb">Add Category</a></div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Category 1</th>
+            <th scope="col">Category 2</th>
+            <th scope="col">Category 3</th>
+            <th scope="col">Category 4</th>
+            <th scope="col">Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Category item in Model)
+        {
+        <tr>
+            <th scope="row">@count</th>
+            <td>@item.Category1</td>
+            <td>@item.Category2</td>
+            <td>@item.Category3</td>
+            <td>@item.Category4</td>
+            <td>
+                <button class="btn btn-success btn-xs">
+                    <a asp-controller="category" asp-action="Update" asp-route-id="@item.Id">
+                        <i class="fa fa-pencil-square"></i>
+                    </a>
+                </button>
+            </td>
+        </tr>
+            count++;
+        }
+    </tbody>
+</table>

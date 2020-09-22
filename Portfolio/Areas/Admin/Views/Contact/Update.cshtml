@@ -1,0 +1,51 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h2>Update Contact Info</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-11 col-md-11 col-sm-11">
+            <form method="post">
+                <div class="form-group">
+                    <label asp-for="Phone"></label>
+                    <input asp-for="Phone" class="form-control">
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Facebook"></label>
+                    <input asp-for="Facebook" class="form-control">
+                    <span asp-validation-for="Facebook" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Instagram"></label>
+                    <input asp-for="Instagram" class="form-control">
+                    <span asp-validation-for="Instagram" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Linkedin"></label>
+                    <input asp-for="Linkedin" class="form-control">
+                    <span asp-validation-for="Linkedin" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Github"></label>
+                    <input asp-for="Github" class="form-control">
+                    <span asp-validation-for="Github" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="row mt">
+        <div class="col-lg-11">
+            <a class="btn btn-success" asp-action="Index">Back</a>
+        </div>
+    </div>
+</div>

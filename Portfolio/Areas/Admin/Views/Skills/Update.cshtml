@@ -1,0 +1,30 @@
+﻿@model AboutSkills
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h2>Update</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-11 col-md-11 col-sm-11">
+            <form method="post">
+                <div class="form-group">
+                    <label asp-for="Text" style="font-size:20px"></label>
+                    <textarea asp-for="Text"></textarea>
+                    <span asp-validation-for="Text" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#Text'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+}
